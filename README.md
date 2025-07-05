@@ -155,7 +155,7 @@ cd Ecobin-Frontend
 Go to the [Mapbox](https://www.mapbox.com/)
 and create a Access Token and coppy it 
 
-![Mapbox Access Token](images/Mapbox-token.png)
+![Mapbox Access Token](images/mapbox-token.png)
 
 Make a .env in /EcoBin-Frontend/ 
 ```
