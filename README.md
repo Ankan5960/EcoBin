@@ -25,9 +25,9 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 
 ---
 
-## 🧠 System Architecture
+## 🧠 **System Architecture**
 
-### 🔌 Hardware (IoT Nodes)
+### 🔌**Hardware (IoT Nodes)**
 - **ESP32** microcontroller  
 - **Ultrasonic Sensor (HC-SR04)** – Measures bin fill level  
 - **MQ-135** – Detects air quality and harmful gases  
@@ -37,7 +37,7 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 - **TP5100** – Dual-cell lithium battery charging  
 - **2S Lithium Battery + Solar Panel** – Off-grid power supply  
 
-### 🧰 Backend (Microservices in C# .NET)
+### 🧰 **Backend (Microservices in C# .NET)**
 
 | Service               | Responsibilities                                  |
 |-----------------------|---------------------------------------------------|
@@ -46,9 +46,12 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 | **EcoBin-User-Data-Service** | Handles bin location suggestions and user data    |
 | **EcoBin-Gateway-Service**   | API Gateway for routing and authentication        |
 
-- **Database**: PostgreSQL  
+### **Database**: PostgreSQL  
   - `ecobin_sensor_data_db_production`  
-  - `ecobin_auth_db_production`  
+  ![ecobin_sensor_data_db_production](images/img1.png)
+
+  - `ecobin_auth_db_production` 
+  ![ecobin_auth_db_production](images/img1.png) 
 
 ### 🌐 Frontend
 - **React + TypeScript**
@@ -80,16 +83,16 @@ Each bin (with unique `dustbinId`) sends JSON payload to the backend:
 }
 ```
 
-## Getting Start
+## Getting Start - Set up for local use
 
 Open Terminal and run 
 
--If using Windows
+If using Windows
 ```shell
 ./clone-repos.bat
 ./update-repos.bat
 ```
--If using MacOs/Linux
+If using MacOs/Linux
 ```bash
 chmod +x clone-repos.sh
 ./clone-repos.sh
@@ -97,13 +100,13 @@ chmod +x update-repos.sh
 ./update-repos.sh
 ```
 
-If this are sucessfully run then created two new folders 
+If this are sucessfully run then there is two new folders created. 
 
 ```
 Ecobin-Frontend
 Ecobin-MicroServices
 ```
-### Set Up Ecobin-Microservices
+## Set Up Ecobin-Microservices
 
 Go to the **Ecobin-Microservices** folder using 
 
@@ -137,12 +140,15 @@ docker compose up --build
 ```
 it take some time 
 after sucessfull runyou can acess the swagger ui using this 
-```
+
 http://localhost:6010/swagger/index.html
+
 http://localhost:6117/swagger/index.html
+
 http://localhost:6028/swagger/index.html
+
 http://localhost:6274/swagger/index.html
-```
+
 
 ### Set up Ecobin-Frontend
 
@@ -153,9 +159,9 @@ cd Ecobin-Frontend
 ```
 
 Go to the [Mapbox](https://www.mapbox.com/)
-and create a Access Token and coppy it 
+and create a Access Token and copy it 
 
-![Mapbox Access Token](images/mapbox-token.png)
+![Mapbox Access Token](https://github.com/Ankan5960/EcoBin/blob/main/Images/mapbox-token.png)
 
 Make a .env in /EcoBin-Frontend/ 
 ```
