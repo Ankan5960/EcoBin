@@ -48,10 +48,10 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 
 ### **Database**: PostgreSQL  
   - `ecobin_sensor_data_db_production`  
-  ![ecobin_sensor_data_db_production](images/img1.png)
+  ![ecobin_sensor_data_db_production](/Images/img1.png)
 
   - `ecobin_auth_db_production` 
-  ![ecobin_auth_db_production](images/img1.png) 
+  ![ecobin_auth_db_production](/Images/img1.png) 
 
 ### 🌐 Frontend
 - **React + TypeScript**
@@ -161,7 +161,7 @@ cd Ecobin-Frontend
 Go to the [Mapbox](https://www.mapbox.com/)
 and create a Access Token and copy it 
 
-![Mapbox Access Token](https://github.com/Ankan5960/EcoBin/blob/main/Images/mapbox-token.png)
+![Mapbox Access Token](/Images/img1.png)
 
 Make a .env in /EcoBin-Frontend/ 
 ```
