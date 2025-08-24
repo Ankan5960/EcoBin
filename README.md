@@ -37,6 +37,9 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 - **TP5100** – Dual-cell lithium battery charging  
 - **2S Lithium Battery + Solar Panel** – Off-grid power supply  
 
+### Circuit design:
+ ![ecobin_sensor_data_db_production](/Images/circuit-img.jpeg)
+
 ### 🧰 **Backend (Microservices in C# .NET)**
 
 | Service               | Responsibilities                                  |
@@ -46,12 +49,15 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 | **EcoBin-User-Data-Service** | Handles bin location suggestions and user data    |
 | **EcoBin-Gateway-Service**   | API Gateway for routing and authentication        |
 
+![Backend-architure](/Images/Backend-architure-img.jpeg)
+
+
 ### **Database**: PostgreSQL  
   - `ecobin_sensor_data_db_production`  
-  ![ecobin_sensor_data_db_production](/Images)
+  ![ecobin_sensor_data_db_production](/Images/ecobin_sensor_data_db_production-img.jpeg)
 
   - `ecobin_auth_db_production` 
-  ![ecobin_auth_db_production](/Images) 
+  ![ecobin_auth_db_production](/Images/ecobin_auth_db_production-img.jpeg) 
 
 ### 🌐 Frontend
 - **React + TypeScript**
@@ -83,7 +89,7 @@ Each bin (with unique `dustbinId`) sends JSON payload to the backend:
 }
 ```
 
-## Getting Start - Set up for local use
+# Getting Start - Set up for local use
 
 Open Terminal and run 
 
@@ -106,7 +112,16 @@ If this are sucessfully run then there is two new folders created.
 Ecobin-Frontend
 Ecobin-MicroServices
 ```
-## Set Up Ecobin-Microservices
+## Mapbox Access Token
+
+Go to the [Mapbox](https://www.mapbox.com/)
+and create a Access Token and copy it 
+
+![Mapbox Access Token](/Images/map_box_access_token_img.png)
+
+this access token needed in EcoBin-Microservice as well as EcoBin frontend
+
+# Set Up Ecobin-Microservices
 
 Go to the **Ecobin-Microservices** folder using 
 
@@ -133,24 +148,105 @@ EcoBin-GateWay-Service
 EcoBin-Sensor-Data-Service
 EcoBin-User-Data-Service
 ```
+## Env create
+create a folder called `env` under the ..../EcoBin-Microservices/ directory.
+
+under this create 6 folders:
+
+
+1. `auth-db.env`:
+
+```bash
+POSTGRES_USER="your postgres username"
+POSTGRES_PASSWORD="your postgres password"
+POSTGRES_DB=ecobin_auth_db_production
+```
+
+2. `auth.env`:
+
+```bash
+ConnectionStrings__DefaultConnection=Host=ecobin-auth-db;Port=5432;Database=ecobin_auth_db_production;Username="your postgres username";Password="your postgres password"
+Jwt__Key="your jwt key"
+Jwt__Issuer=x.x.x.x
+
+Migrations__Key="create a guid and paste here"
+Migrations__Email="your email"
+Migrations__Password="your password"
+Migrations__AreaOfService="a area name like in my case it's newtown"
+
+```
+
+3. `gateway.env`:
+
+```bash
+ApiBaseUrls__EcoBinAuthService=http://ecobin-auth-service:6117
+ApiBaseUrls__EcoBinSensorDataService=http://ecobin-sensor-data-service:6028
+ApiBaseUrls__EcoBinUserDataService=http://ecobin-user-data-service:6274
+
+```
+
+4. `sensor-db.env`:
+
+```bash
+POSTGRES_USER="your postgres username"
+POSTGRES_PASSWORD="your postgres password"
+POSTGRES_DB=ecobin_sensor_data_db_production
+
+```
+
+5. `sensor.env`:
+
+```bash
+ConnectionStrings__DefaultConnection=Host=ecobin-auth-db;Port=5432;Database=ecobin_auth_db_production;Username="your postgres username";Password="your postgres password"
+MapBox__AccessToken="your Mapbox apikey"
+MapBox__BaseUrl=https://api.mapbox.com
+Jwt__Key="your jwt key"
+Jwt__Issuer=x.x.x.x
+```
+
+6. `user.env`:
+
+```bash
+EcoBinSensorDataApi__BaseUrl=http://ecobin-sensor-data-service:6028
+MapBox__AccessToken="your Mapbox apikey"
+MapBox__BaseUrl=https://api.mapbox.com
+EmailServiceConfiguratin__SmtpHost=smtp.gmail.com
+EmailServiceConfiguratin__SmtpPort=587
+EmailServiceConfiguratin__FromEmail="your email"
+EmailServiceConfiguratin__FromPassword="your password"
+Jwt__Key="your jwt key"
+Jwt__Issuer=x.x.x.x
+
+```
+## Run Docker:
 make sure docker is installed and running
 then run 
 ```bash
 docker compose up --build
 ```
-it take some time 
+It take some time 
 after sucessfull runyou can acess the swagger ui using this 
 
-http://localhost:6010/swagger/index.html
 
-http://localhost:6117/swagger/index.html
+EcoBin Gateway Service: http://localhost:6010/swagger/index.html
+![EcoBin Gateway Service](/Images/ecobin-gateway-service-img.jpeg)
 
-http://localhost:6028/swagger/index.html
+EcoBin Auth Service: http://localhost:6117/swagger/index.html
+![EcoBin Auth Service](/Images/ecobin-auth-data-img.jpeg)
 
-http://localhost:6274/swagger/index.html
+EcoBin Sensor Data Service: http://localhost:6028/swagger/index.html
+![EcoBin Sensor Data Service](/Images/ecobin-sensor-data-img.jpeg)
+
+EcoBin User Data Service: http://localhost:6274/swagger/index.html
+![EcoBin User Data Service](/Images/ecobin-user-data-img.jpeg)
+
+## Now you need to migrate the databases
+goto- http://localhost:6117/swagger/index.html
+
+click on `/user-auth/Migration/db-migration`
 
 
-### Set up Ecobin-Frontend
+# Set up Ecobin-Frontend
 
 Go to the **Ecobin-Frontend** folder using 
 
@@ -158,10 +254,7 @@ Go to the **Ecobin-Frontend** folder using
 cd Ecobin-Frontend
 ```
 
-Go to the [Mapbox](https://www.mapbox.com/)
-and create a Access Token and copy it 
 
-![Mapbox Access Token](/Images/map_box_access_token_img.png)
 
 Make a .env in /EcoBin-Frontend/ 
 ```
