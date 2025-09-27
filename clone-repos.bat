@@ -4,4 +4,7 @@ git clone https://github.com/Ankan5960/EcoBin-Frontend.git
 
 echo Cloning EcoBin-Microservices repository...
 git clone https://github.com/Ankan5960/EcoBin-Microservices.git
+
+echo Cloning Ecobin-Hardware-Setup repository...
+git clone https://github.com/Ankan5960/Ecobin-Hardware-Setup.git
 pause

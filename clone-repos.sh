@@ -7,6 +7,9 @@ clone_repos() {
 
     echo Cloning EcoBin-Microservice repository...
     git clone https://github.com/Ankan5960/EcoBin-Microservices.git
+
+    echo Cloning Ecobin-Hardware-Setup repository...
+    git clone https://github.com/Ankan5960/Ecobin-Hardware-Setup.git
 }
 
 # Detect the operating system and execute the cloning function

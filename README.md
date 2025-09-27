@@ -244,7 +244,8 @@ EcoBin User Data Service: http://localhost:6274/swagger/index.html
 goto- http://localhost:6117/swagger/index.html
 
 click on `/user-auth/Migration/db-migration`
-
+![migration-key-setup](/Images/migration-key-setup.png)
+and then click execute
 
 # Set up Ecobin-Frontend
 
@@ -272,3 +273,5 @@ Your Frontend now start at
 http://localhost:3000/
 http://your-ip:3000/
 ```
+Now you can acess the Ecobin-Frontend
+

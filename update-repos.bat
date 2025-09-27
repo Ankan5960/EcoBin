@@ -4,6 +4,7 @@ setlocal enabledelayedexpansion
 :: Function to update the repository
 call :update_repo "EcoBin-Frontend"
 call :update_repo "EcoBin-Microservices"
+call :update_repo "Ecobin-Hardware-Setup"
 
 :: Exit script
 exit /b

@@ -17,6 +17,7 @@ if [[ "$OSTYPE" == "linux-gnu"* || "$OSTYPE" == "darwin"* ]]; then
   # Update both repositories
   update_repo "EcoBin-Frontend"
   update_repo "EcoBin-Microservices"
+  update_repo "Ecobin-Hardware-Setup"
 else
   echo "Unsupported OS: $OSTYPE"
   exit 1
