@@ -4,7 +4,7 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 
 ---
 
-## 🚀 Features
+## 🚀 Features- For user prespective
 
 ### 🎛️ Admin Panel
 - Manage users and roles (Admin, Collector, User, Guest)
@@ -25,22 +25,28 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 
 ---
 
-## 🧠 **System Architecture**
+## 🚀 Features- For Devloper prespective
 
-### 🔌**Hardware (IoT Nodes)**
-- **ESP32** microcontroller  
-- **Ultrasonic Sensor (HC-SR04)** – Measures bin fill level  
-- **MQ-135** – Detects air quality and harmful gases  
-- **DHT11** – Monitors temperature and humidity  
-- **HX711 + Load Cell** – Measures bin weight  
-- **Neo-6M GPS Module** – Sends bin location  
-- **TP5100** – Dual-cell lithium battery charging  
-- **2S Lithium Battery + Solar Panel** – Off-grid power supply  
+### Frontend :
+- React: Used React with typescript. 
+- Tailwind: For Styling used tailwind here.
+- Shadcn: Some shadcn components are used here.
 
-### Circuit design:
+### Backend: 
+- Used .Net WebApi with C#.
+- Used MicroService based architecture.
+
+### Hardware: 
+- MCU: `ESP32`.
+- Sensors: `HC-SR04`(Measures bin fill level), `MQ-135` (Detects air quality and harmful gases), `DHT11` (Monitors temperature and humidity), `Neo-6M` (Sends bin location), `TP5100` (Dual-cell lithium battery charging), `2S Lithium Battery`, `Solar Panel`.
+- Arduino Uno: To configure the MCU and sensors. 
+
+ ### Circuit design:
  ![ecobin_sensor_data_db_production](/Images/circuit-img.jpeg)
 
-### 🧰 **Backend (Microservices in C# .NET)**
+## 🧠 **System Architecture**
+
+### Microservices services
 
 | Service               | Responsibilities                                  |
 |-----------------------|---------------------------------------------------|
@@ -58,12 +64,6 @@ EcoBin is a scalable, IoT-powered smart waste management system that monitors bi
 
   - `ecobin_auth_db_production` 
   ![ecobin_auth_db_production](/Images/ecobin_auth_db_production-img.jpeg) 
-
-### 🌐 Frontend
-- **React + TypeScript**
-- **Tailwind CSS** + **shadcn/ui**
-- Hosted on **Netlify**
-- Fully responsive and role-based UI
 
 ### ☁️ Deployment
 - Backend and DB hosted on **Google Cloud VM**
@@ -111,6 +111,7 @@ If this are sucessfully run then there is two new folders created.
 ```
 Ecobin-Frontend
 Ecobin-MicroServices
+Ecobin-Hardware-Setup
 ```
 ## Mapbox Access Token
 
